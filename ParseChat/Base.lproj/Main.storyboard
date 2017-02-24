@@ -168,12 +168,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dm-CS-j58">
-                                                    <rect key="frame" x="72" y="54" width="187.5" height="72"/>
+                                                    <rect key="frame" x="72" y="73.5" width="117.5" height="52.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's up?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBp-wo-eST">
-                                                            <rect key="frame" x="16" y="16" width="155.5" height="40"/>
+                                                            <rect key="frame" x="16" y="16" width="85.5" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="sAK-Vb-E2o"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="sAK-Vb-E2o"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,7 +198,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="4dm-CS-j58" firstAttribute="width" secondItem="4Ui-Wn-lkg" secondAttribute="width" multiplier="0.5" id="bkh-hp-S6L"/>
+                                            <constraint firstItem="4dm-CS-j58" firstAttribute="width" relation="lessThanOrEqual" secondItem="4Ui-Wn-lkg" secondAttribute="width" multiplier="0.7" id="bkh-hp-S6L"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="messageLabel" destination="IBp-wo-eST" id="o5Q-SV-2WV"/>

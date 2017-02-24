@@ -17,7 +17,12 @@ class SignUpViewController: UIViewController {
         let _ = self.navigationController?.popViewController(animated: true)
     }
  
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!{
+        didSet{
+            self.usernameTextField.delegate = self
+        }
+    }
+
     
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -62,6 +67,11 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
-
 }
+
+extension SignUpViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
+

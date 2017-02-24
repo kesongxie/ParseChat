@@ -12,9 +12,18 @@ import Parse
 fileprivate let SegueToHomeIden = "SegueToHome"
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!{
+        didSet{
+            self.usernameTextField.delegate = self
+        }
+    }
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!{
+        didSet{
+            self.passwordTextField.delegate = self
+        }
+    }
+
 
     @IBOutlet weak var loginBtn: UIButton!{
         didSet{
@@ -24,7 +33,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
-        let user = PFUser()
         guard let username = self.usernameTextField.text else{
             return
         }
@@ -54,6 +62,13 @@ class LoginViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

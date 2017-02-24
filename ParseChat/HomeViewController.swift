@@ -31,7 +31,11 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!{
+        didSet{
+            self.messageTextField.delegate = self
+        }
+    }
     
     @IBAction func sendBtnTapped(_ sender: UIButton) {
         guard let text = self.messageTextField.text, !text.isEmpty else{
@@ -132,6 +136,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.message = self.messages![indexPath.row]
         return cell
     }
-    
+}
 
+extension HomeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
