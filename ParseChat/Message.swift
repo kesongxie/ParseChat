@@ -43,7 +43,6 @@ class Message{
         let query = PFQuery(className: Message.className)
         query.findObjectsInBackground { (objects, error) in
             if let objects = objects{
-                print(objects)
                 let messages = objects.map({ (object) -> Message in
                     return Message(object: object)
                 })

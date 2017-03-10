@@ -28,8 +28,21 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func signUpBtnTapped(_ sender: UIButton) {
         let user = PFUser()
-        user.username = self.usernameTextField.text
-        user.password = self.passwordTextField.text
+        
+        
+        if let username = self.usernameTextField.text, !username.isEmpty{
+            user.username = username
+        }else{
+            self.alert()
+            return
+        }
+        
+        if let password = self.passwordTextField.text, !password.isEmpty{
+            user.password = password
+        }else{
+            self.alert()
+            return
+        }
         
         user.signUpInBackground { (succeed, error) in
             if succeed{
@@ -50,9 +63,16 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
+    
+    func alert(){
+        let alert = UIAlertController(title: "Invalid", message: "The username and password must not be empty", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
